@@ -16,7 +16,7 @@ sudo pacman -S python phyton-pip nodejs npm rust go -y
 
 sudo pacman -S zsh -y
 
-chsh -s $which(zsh)
+chsh -s $(which zsh)
 
 source ~/.bash_profile
 source ~/.bashrc
