@@ -1,18 +1,18 @@
 #! /usr/bin/env bash
 
-# Upadate repositories
+## Upadate repositories
 
 sudo pacman -Syy
 
-# Essentials packages
+## Essentials packages
 
 sudo pacman -S --noconfirm base base-devel git curl
 
-# Programming packages
+## Programming packages
 
 sudo pacman -S --noconfirm python phyton-pip nodejs npm rust go
 
-# Installing yay
+## Installing yay
 
 git clone https://aur.archlinux.org/yay.git
 cd yay
@@ -20,7 +20,7 @@ makepkg -si
 cd ..
 rm -rf yay
 
-# Installing snapd
+## Installing snapd
 
 git clone https://aur.archlinux.org/snapd.git
 cd snapd
@@ -31,11 +31,11 @@ cd ..
 rm -rf snapd
 
 
-# Installing flatpak
+## Installing flatpak
 
 sudo pacman -S --noconfirm flatpak
 
-# Theme, Icons and cursors
+## Theme, Icons and cursors
 
 cd
 git clone https://github.com/vinceliuice/Orchis-theme.git
@@ -53,27 +53,44 @@ rm -rf Tela-icon-theme
 
 yay -S --noconfirm bibata-cursor-theme
 
-# Browser
+## Browsers
 
 yay -S --noconfirm chromium brave-bin
 
-# Customizing shell
+## Docker 
+
+sudo pacman -S --noconfirm docker docker-compose
+
+## Shell Commands Documentation
+
+sudo pacman -S --noconfirm tldr
+
+## Telegram desktop 
+
+yay -S --noconfirm telegram-desktop
+
+## Customizing shell
 
 sudo pacman -S --noconfirm zsh
 
 chsh -s $(which zsh)
 
-# Manually
+## zsh plugins
 
 # sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
+
+## zinit plugins
 
 # zinit light zdharma/fast-syntax-highlighting
 # zinit light zsh-users/zsh-autosuggestions
 # zinit light zsh-users/zsh-completions
 # zinit ice depth=1; zinit light romkatv/powerlevel10k
 
+## Manually install before reboot
+
 # snap install code --classic
 # snap install discord
+# snap install insomnia
 
