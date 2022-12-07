@@ -76,7 +76,3 @@ yay -S --noconfirm bibata-cursor-theme
 # Browser
 
 yay -S --noconfirm chromium brave-bin
-
-# App launcher
-
-yay -S ulauncher
