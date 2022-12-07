@@ -12,26 +12,6 @@ sudo pacman -S --noconfirm base base-devel git curl
 
 sudo pacman -S --noconfirm python phyton-pip nodejs npm rust go
 
-# Customizing shell
-
-sudo pacman -S --noconfirm zsh
-
-chsh -s $(which zsh)
-
-source ~/.bash_profile
-source ~/.bashrc
-
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
-
-echo 'zinit light zdharma/fast-syntax-highlighting' >> ~/.zshrc
-echo 'zinit light zsh-users/zsh-autosuggestions' >> ~/.zshrc
-echo 'zinit light zsh-users/zsh-completions' >> ~/.zshrc
-echo 'zinit ice depth=1; zinit light romkatv/powerlevel10k' >> ~/.zshrc
-
-source ~/.zshrc
-
 # Installing yay
 
 git clone https://aur.archlinux.org/yay.git
