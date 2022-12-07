@@ -7,7 +7,7 @@ My personal post install for arch linux
 To run script:
 
 ```bash
-  git clone https://github.com/ericsx2/post-instal-arch.git
+  git clone https://github.com/Ericsx2/post-install-arch.git
   cd post-install-arch
   chmod +x post-install.sh
   ./post-install.sh
