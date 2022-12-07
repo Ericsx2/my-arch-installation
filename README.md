@@ -4,11 +4,11 @@ My personal post install for arch linux
 
 ## Usage
 
-To run the script:
+To run script:
 
 ```bash
   git clone https://github.com/ericsx2/post-instal-arch.git
   cd post-install-arch
-  sudo chmod +x post-install.sh
+  chmod +x post-install.sh
   ./post-install.sh
 ```
