@@ -6,15 +6,15 @@ sudo pacman -Syy
 
 # Essentials packages
 
-sudo pacman -S base base-devel git curl -y
+sudo pacman -S --noconfirm base base-devel git curl
 
 # Programming packages
 
-sudo pacman -S python phyton-pip nodejs npm rust go -y
+sudo pacman -S --noconfirm python phyton-pip nodejs npm rust go
 
 # Customizing shell
 
-sudo pacman -S zsh -y
+sudo pacman -S --noconfirm zsh
 
 chsh -s $(which zsh)
 
@@ -53,7 +53,7 @@ rm -rf snapd
 
 # Installing flatpak
 
-sudo pacman -S flatpak -y
+sudo pacman -S --noconfirm flatpak
 
 # Theme, Icons and cursors
 
@@ -71,11 +71,11 @@ cd ..
 rm -rf Tela-icon-theme
 
 
-yay -S bibata-cursor-theme
+yay -S --noconfirm bibata-cursor-theme
 
 # Browser
 
-yay -S chromium brave-bin
+yay -S --noconfirm chromium brave-bin
 
 # App launcher
 
