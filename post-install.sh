@@ -60,6 +60,7 @@ yay -S --noconfirm chromium brave-bin
 ## Docker 
 
 sudo pacman -S --noconfirm docker docker-compose
+sudo systemctl --now enable docker.service
 
 ## Shell Commands Documentation
 
