@@ -16,7 +16,7 @@ sudo pacman -S --noconfirm python phyton-pip nodejs npm rust go
 
 git clone https://aur.archlinux.org/yay.git
 cd yay
-makepkg -si
+makepkg -si --noconfirm
 cd ..
 rm -rf yay
 
@@ -24,7 +24,7 @@ rm -rf yay
 
 git clone https://aur.archlinux.org/snapd.git
 cd snapd
-makepkg -si
+makepkg -si --noconfirm
 sudo systemctl enable --now snapd.socket
 sudo systemctl enable --now snapd.apparmor
 cd ..
