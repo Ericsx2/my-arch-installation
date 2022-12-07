@@ -89,7 +89,7 @@ chsh -s $(which zsh)
 # zinit light zsh-users/zsh-completions
 # zinit ice depth=1; zinit light romkatv/powerlevel10k
 
-## Manually install before reboot
+## Manually install after reboot
 
 # snap install code --classic
 # snap install discord
