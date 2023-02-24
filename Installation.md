@@ -168,6 +168,14 @@ initrd	/initramfs-linux.img
 options root=/dev/file_system_partition rw
 ```
 
+Set arch default entry
+
+```sh
+nano /boot/loader/loader.conf
+
+default   arch-*
+```
+
 Exit chroot
 
 ```sh
