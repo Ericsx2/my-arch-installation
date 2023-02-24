@@ -58,25 +58,24 @@ yay -S --noconfirm visual-studio-code-bin
 
 ## Desktop customization
 #Theme
-cd ~
 git clone https://github.com/vinceliuice/Orchis-theme.git
 cd Orchis-theme
 ./install.sh --theme all
-cd ~
+cd ..
 rm -rf Orchis-theme
 
 #Icons
 git clone https://github.com/vinceliuice/Fluent-icon-theme.git
 cd Fluent-icon-theme
 ./install.sh -a
-cd ~
+cd ..
 rm -rf Fluent-icon-theme
 
 #Cursor
 git clone https://github.com/vinceliuice/Vimix-cursors.git
 cd Vimix-cursors
 ./install.sh
-cd ~
+cd ..
 rm -rf Vimix-cursors
 
 ## Isonmnia Rest Client
@@ -84,11 +83,10 @@ rm -rf Vimix-cursors
 flatpak install -y rest.insomnia.Insomnia
 
 ## Install Nerd Fonts
-cd ~
 git clone https://github.com/ryanoasis/nerd-fonts.git
 cd nerd-fonts
 ./install.sh
-cd ~
+cd ..
 rm -rf nerd-fonts
 
 ## Change shell
