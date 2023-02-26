@@ -91,3 +91,4 @@ rm -rf nerd-fonts
 
 ## Change shell
 chsh -s /bin/fish
+teste
