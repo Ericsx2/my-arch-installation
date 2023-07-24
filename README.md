@@ -142,7 +142,7 @@ passwd eric
 Install network essentials
 
 ```sh
-pacman -S dosfstools os-prober mtools network-manager-applet networkmanager wpa_supplicant wireless_tools dialog
+pacman -S dosfstools os-prober mtools network-manager-applet networkmanager wpa_supplicant wireless_tools dialog iwd
 ```
 
 Enable network manager service
@@ -163,7 +163,7 @@ Set arch entry
 nano /boot/loader/entries/arch.conf
 
 title	Arch Linux
-linux	/vmlinux-linux
+linux	/vmlinuz-linux
 initrd	/initramfs-linux.img
 options root=/dev/file_system_partition rw
 ```
