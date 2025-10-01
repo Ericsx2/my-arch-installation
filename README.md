@@ -1,11 +1,5 @@
 # On Live CD
 
-Load keys
-
-```sh
-loadkeys br-abnt2
-```
-
 Enable parallel downloads
 
 ```sh
@@ -22,14 +16,16 @@ cfdisk
 
 # 500M for efi
 # 2g for Swap
-# rest for system
+# min 50G for root
+# rest for home
 ```
 
 Format partitions
 
 ```sh
 mkfs.fat -F32 /dev/efi_partition
-mkfs.ext4 /dev/file_system_partition
+mkfs.ext4 /dev/root_partition
+mkfs.ext4 /dev/home_partition
 mkswap /dev/swap_partition
 ```
 
@@ -42,8 +38,9 @@ swapon /dev/swap_partition
 Mount file system
 
 ```sh
-mount /dev/file_system_partition /mnt
+mount /dev/root_partition /mnt
 mount --mkdir /dev/efi_partition /mnt/boot
+mount --mkdir /dev/home_partition /mnt/home
 ```
 
 Install the base packages
@@ -83,16 +80,10 @@ locale-gen
 echo LANG=en_US.UTF-8 > /etc/locale.conf
 ```
 
-Set default keymap
-
-```sh
-echo KEYMAP=br-abnt2 > /etc/vconsole.conf
-```
-
 Define Hostname
 
 ```sh
-echo archlinux > /etc/hostname
+echo eric-pc > /etc/hostname
 ```
 
 Edit hosts file
@@ -101,7 +92,7 @@ Edit hosts file
 nano /etc/hosts
 
 127.0.0.1		localhost
-::1			localhost
+::1			    localhost
 127.0.0.1		archlinux
 
 ```
@@ -151,30 +142,44 @@ Enable network manager service
 systemctl enable NetworkManager
 ```
 
-Install systemd Bootloader
+Install pipeware
+```sh
+pacman S pipewire pipewire-alsa pipewire-jack pipewire-pulse gst-plugin-pipewire libpulse wireplumber
+```
+
+Enable pipeware-pulse service
 
 ```sh
-bootctl --path=/boot install
+systemctl enable pipeware-pulse
+```
+
+Install Limine Bootloader
+
+```sh
+pacman -S limine
+```
+
+Execute Limine
+```sh
+limine-install
 ```
 
 Set arch entry
 
 ```sh
-nano /boot/loader/entries/arch.conf
+nano /boot/limini.conf
 
-title	Arch Linux
-linux	/vmlinuz-linux
-initrd	/initramfs-linux.img
-options root=/dev/file_system_partition rw
+TIMEOUT=5
+GRAPHICS=yes
+
+:Arch Linux
+    COMMENT=Inicia o Arch Linux
+    PROTOCOL=linux
+    KERNEL_PATH=boot:///vmlinuz-linux
+    MODULE_PATH=boot:///initramfs-linux.img
+    CMDLINE=root=UUID=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX rw
 ```
-
-Set arch default entry
-
-```sh
-nano /boot/loader/loader.conf
-
-default   arch-*
-```
+> **Note** CMDLINE=root=UUID=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX rw (lsblk -f to see uuid of patitions)
 
 Exit chroot
 
@@ -219,17 +224,10 @@ sudo pacman -S gnome gnome-terminal gdm
 systemctl enable gdm
 ```
 
-Reboot system
-
+Install hyprland
 ```sh
-reboot
-```
-
-Exec post-install.sh
-
-```sh
-sudo chmod +x post-install.sh
-./post-install.sh
+sudo pacman -S sddm wayland xorg-xwayland qt5-wayland qt6-wayland xdg-desktop-portal-hyprland hyprland alacritty dolphin wofi waybar
+systemctl enable sddm
 ```
 
 Reboot system

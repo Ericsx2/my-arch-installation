@@ -1,0 +1,112 @@
+* {
+  min-height: 0;
+  min-width: 0;
+  font-family: "MesloLGS Nerd Font", Lexend, "JetBrainsMono NFP";
+  font-size: 16px;
+  font-weight: 600;
+}
+
+window#waybar {
+  transition-property: background-color;
+  transition-duration: 0.5s;
+  background: rgba(200, 255, 200, 0.15); /* verde claro com transparência */
+}
+
+#workspaces button {
+  padding: 0.3rem 0.6rem;
+  margin: 0.4rem 0.25rem;
+  border-radius: 6px;
+  background-color: rgba(50, 80, 50, 0.6); /* verde escuro translúcido */
+  color: #d8fdd8; /* verde claro */
+}
+
+#workspaces button:hover {
+  color: rgba(50, 80, 50, 1);
+  background-color: #d8fdd8;
+}
+
+#workspaces button.active {
+  background-color: rgba(50, 80, 50, 0.8);
+  color: #a6f4a6;
+}
+
+#workspaces button.urgent {
+  background-color: rgba(50, 80, 50, 0.8);
+  color: #ffaaaa; /* tom de alerta suave */
+}
+
+#clock,
+#pulseaudio,
+#custom-logo,
+#custom-power,
+#custom-spotify,
+#custom-notification,
+#cpu,
+#tray,
+#memory,
+#window,
+#mpris {
+  padding: 0.3rem 0.6rem;
+  margin: 0.4rem 0.25rem;
+  font-size: 14px;
+  border-radius: 6px;
+  background-color: rgba(50, 80, 50, 0.6);
+}
+
+#mpris.playing {
+  color: #b6fcb6;
+}
+
+#mpris.paused {
+  color: #a0bfa0;
+}
+
+#custom-sep {
+  padding: 0px;
+  color: #7a9b7a;
+}
+
+window#waybar.empty #window {
+  background-color: transparent;
+}
+
+#cpu {
+  color: #a8f5c8;
+}
+
+#memory {
+  color: #c0f8d0;
+}
+
+#clock {
+  color: #b0f0b0;
+}
+
+#clock.simpleclock {
+  color: #a6f4a6;
+}
+
+#window {
+  color: #d8fdd8;
+}
+
+#pulseaudio {
+  color: #c2f5c2;
+}
+
+#pulseaudio.muted {
+  color: #a0bfa0;
+}
+
+#custom-logo {
+  color: #a6f4a6;
+}
+
+#custom-power {
+  color: #ffaaaa;
+}
+
+tooltip {
+  background-color: rgba(50, 80, 50, 0.9);
+  border: 2px solid #a6f4a6;
+}
